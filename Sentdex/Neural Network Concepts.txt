@@ -1,0 +1,14 @@
+P_1
+
+Neurale netwerken zijn een belangrijk concept binnen machine learning en kunstmatige intelligentie. Ze worden gebruikt om complexe taken uit te voeren door middel van het nabootsen van de werking van het menselijke brein. Laten we de begrippen "inputs," "weights," en "bias" eens nader bekijken binnen het kader van neurale netwerken:
+
+1. Inputs:
+In een neuraal netwerk zijn inputs de gegevens die aan het netwerk worden gevoed om een bepaalde taak uit te voeren. Deze inputs kunnen verschillende vormen hebben, afhankelijk van de specifieke toepassing. Ze kunnen numerieke waarden zijn, zoals pixelwaarden van afbeeldingen, kenmerken van gegevenspunten, of tekstuele gegevens die zijn omgezet in numerieke representaties. De inputs worden vaak gegroepeerd in wat bekend staat als een "inputlaag" van het neurale netwerk.
+
+2. Weights:
+Weights, ofwel gewichten, zijn parameters binnen een neurale netwerk die de sterkte en richting van de verbindingen tussen neuronen regelen. Elk neuron in een bepaalde laag van een netwerk is verbonden met elk neuron in de volgende laag via deze gewichten. Gewichten bepalen hoe sterk de signalen van de ene set neuronen worden doorgegeven aan de volgende set neuronen. Tijdens het trainen van het neurale netwerk worden deze gewichten aangepast om ervoor te zorgen dat het netwerk de gewenste output produceert voor een gegeven input.
+
+3. Bias:
+Bias is een constante term die wordt toegevoegd aan de gewogen som van de inputs voordat deze wordt doorgegeven aan de activatiefunctie van een neuron. Het bias-element voegt een verschuiving toe aan de inputwaarden en kan helpen om het model te generaliseren en de flexibiliteit van het netwerk te vergroten. Het kan de mogelijkheid van het netwerk vergroten om patronen te leren die niet direct worden weergegeven door de raw inputgegevens. Net als gewichten worden biases ook aangepast tijdens het trainingsproces om de prestaties van het netwerk te optimaliseren.
+
+In het kort: Inputs zijn de gegevens die in het neurale netwerk worden ingevoerd om een taak uit te voeren. Weights zijn de parameters die de sterkte van verbindingen tussen neuronen bepalen. Bias is een constante term die wordt toegevoegd aan de gewogen som van inputs om de flexibiliteit van het netwerk te vergroten. Deze drie concepten werken samen om neurale netwerken in staat te stellen complexe functies te modelleren en taken zoals classificatie, regressie, patroonherkenning en nog veel meer uit te voeren.
