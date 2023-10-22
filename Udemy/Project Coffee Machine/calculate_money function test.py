@@ -1,0 +1,81 @@
+import pandas as pd
+
+
+def calculate_money(cost, coin):
+    '''Deze functie zorgt voor de noodzakelijke berekeningen voor het
+    betalen van de koffie en het toevoegen van het tegoed aan de file
+    data_money.csv'''
+    print("*** calculate_money() started ***")
+    amount_coins_input = int(input(f"{coin[0]} (${coin[1]:.2f}): "))
+    value_coins = amount_coins_input * coin[1]
+    money = cost
+    enough = False
+    # Dit is de variabele die de data bevat van de file money_file.csv
+    data_money = pd.read_csv(money_file)
+
+    for i in range(0, len(data_money)):
+        money_data = data_money.loc[i].tolist()
+
+    if cost - amount_coins_input < 0:
+        print(f"You paid too much. Your change is"
+              f" ${(value_coins - cost):.2f}"
+              f" Your {coffee_choice} is being processed, enjoy !")
+        enough = True
+        if coin[0] == "quarter":
+            # De variabele bevat het aantal van een bepaalde munt die zijn
+            # betaald voor de koffie
+            amount_coin_add = cost / coin[1]
+            print(f"amount_coin_add: {amount_coin_add}")
+            print(f"cost: {cost}")
+            print(f"coin: {coin[0]}")
+            # De variabele bevat het aantal quarters uit data_money
+            amount = float(data_money.loc[0, "Amount"])
+            print(amount)
+            amount = amount + amount_coin_add
+            print(amount)
+            # updating the column value/data
+            data_money.loc[0, "Amount"] = str(amount)
+            # writing into the file
+            data_money.to_csv(money_file, index=False)
+            # TODO Schrijf code om de data_resources aan te passen door het
+            # verbruik van de resources.
+    # elif cost - amount_coins_input == 0:
+    #     print(f"You paid enough. Your {coffee_choice} is being processed, "
+    #           f"enjoy!")
+    #     money_enough = True
+    #     # TODO Schrijf code om de data_money aan te passen voor het
+    #     #  betaalde geld
+    #     # TODO Schrijf code om de data_resources aan te passen door het
+    #     #  verbruik van de resources.
+    # else:
+    #     need_money = cost - amount_coins_input
+    #     print(f"You'll need another: ${need_money:.2f}")
+
+    return money, enough
+
+# Dit is het pad waar de bestanden zich bevinden van het project Coffee Machine
+path = ("G:\Mijn Drive\GoogleMap Python\Python Udemy\Projects\Project Coffee"
+        " Machine")
+# Dit is de data file die de gegeven bevat over de kostprijs van de koffie
+cost_file = f"{path}\data_cost.csv"
+# Dit is de data file die de gegeven bevat over de ingredienten van een koffie
+coffee_file = f"{path}\data_coffee.csv"
+# Dit is de data file die de gegeven bevat over de munten waarmee betaald
+# kan worden
+money_file = f"{path}\data_money.csv"
+# Dit is de data file die de gegeven bevat over voorraad ingredienten nodig
+# voor het maken van de koffie
+resources_file = f"{path}\data_resources.csv"
+# Dit is de variabele die de soort koffie bevat
+coffee_choice = "espresso"
+# Dit is de variabele die de prijs van de soort koffie bevat
+result_price = 1.5
+# Dit is de list die de muntsoort en zijn waarde bevat
+money = ["quarter", 0.25]
+# Hier wordt de functie calculate_money() aangeroepen, waarbij de argumenten
+# price en money meegegeven worden en daarbij worden de waarden van de
+# variabelen return_need_money, return_money_enough geretourneerd
+# return_need_money, return_money_enough = calculate_money(cost=price,
+#                                                          coin=money)
+money, enough = calculate_money(cost=result_price, coin=money)
+# print(return_need_money, return_money_enough)

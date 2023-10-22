@@ -1,0 +1,5 @@
+Coin,Value,Amount
+quarter,0.25,0
+dime,0.1,3
+nickel,0.05,2
+penny,0.01,5
