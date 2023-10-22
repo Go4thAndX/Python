@@ -1,0 +1,8 @@
+In opdracht 1 en 2 was er een variabele "life" met als startwaarde 3.
+Deze was voor alle objecten van Enemy hetzelfde. Dit was dus een class variable
+
+In opdracht 3 en 4 is de "life" variabele als class variable verdwenen
+Deze is vervangen door een instance variable "life" die wordt ingesteld in de __init__() functie
+Diezelfde __init__() functie introduceert nog 2 instance variabelen: "name" en "max_damage"
+
+Dus in totaal zijn er nu 0 class variables en 3 instance variables bij de Enemy class

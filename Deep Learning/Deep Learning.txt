@@ -1,0 +1,72 @@
+Ik probeer hier het concept van Deep Learning onder de knie te krijgen.
+
+# Code aan passen zodat er via Matplotlib een grafische voorstelling komt die het doelpunt (rood), het start punt
+# (groen) en het eerste random punt (zwart) laat zien en daarna als de code deze genereert de volgende
+# random punten (blauw) die steeds dichter bij het doel komen. Om de grafische voorstelling te maken met Matplotlib,
+# moeten we de punten tijdens de iteraties opslaan en ze uiteindelijk plotten.
+# De lijn in blauw toont de volgorde van de punten na elke iteratie, waarbij elk nieuw punt steeds dichter bij het doel
+# komt. Het doelpunt is rood, het startpunt is groen en het eerste willekeurige punt is zwart.
+# Let op dat als het willekeurige punt dichter bij het doel ligt dan het startpunt, het startpunt wordt vervangen door
+# het willekeurige punt.
+# Het proces herhaalt zich totdat het dichtstbijzijnde punt dichter bij het doel ligt dan 1 eenheid.
+
+# Code een lerend effect geven waarbij bij elke volgende iteratie het random punt nooit een grotere afstand tot het
+# doelpunt kan hebben dan de vorige iteratie, door bijvoorbeeld de random functie zo aan te passen door er rekening mee
+# te houden dat de afstand van het volgende random tot het doelpunt kleiner moet worden.
+# We kunnen de random functie zo aanpassen dat het nieuwe willekeurige punt alleen binnen een bepaalde afstand van het
+# huidige startpunt wordt gekozen. Op die manier zal het nieuwe willekeurige punt altijd dichter bij het doelpunt
+# liggen dan het vorige willekeurige punt.
+# Met deze aanpassing zal de random functie bij elke iteratie een willekeurig punt binnen een straal van het huidige
+# startpunt kiezen, waardoor het nieuwe willekeurige punt altijd dichter bij het doel ligt dan het vorige
+# willekeurige punt. Dit creëert het gewenste lerende effect waarbij de punten steeds dichter bij het doel komen na
+# elke iteratie.
+
+# Code aanpassen om zo weinig mogelijk noodzakelijke iteraties uit te voeren, we gebruiken een aanpak die de afstand
+# tussen het startpunt en het doelpunt verkleint op een meer gecontroleerde manier. Een mogelijkheid is om de
+# stapgrootte waarmee het startpunt naar het doelpunt beweegt te verkleinen naarmate de iteraties vorderen.
+# In deze aangepaste code verkleinen we de stapgrootte (de maximale afstand die het startpunt kan bewegen)
+# met een factor van 0.99 na elke iteratie. Dit zorgt ervoor dat het startpunt steeds kleiner beweegt naarmate
+# de iteraties vorderen, waardoor de afstand tot het doelpunt geleidelijk afneemt.
+# Door dit lerende effect wordt het aantal noodzakelijke iteraties verminderd en convergeert het startpunt sneller
+# naar het doelpunt. We kunnen de verkleiningsfactor (0.99 in dit geval) aanpassen om het gedrag te beïnvloeden
+# en te zien welke waarde het beste werkt voor het specifieke scenario.
+
+# Het optimaliseren van de verkleiningsfactor hangt af van wat je precies wilt bereiken met het lerende effect. 
+# Het doel is om het aantal noodzakelijke iteraties te verminderen terwijl het startpunt nog steeds nauwkeurig naar het
+# doel convergeert.
+# Het is een kwestie van balans tussen twee belangrijke factoren:
+# Stapgroottevermindering: Hoe kleiner de stapgroottevermindering, hoe langzamer de beweging van het startpunt naar het
+# doel zal zijn naarmate het programma vordert. Als je een zeer kleine verkleiningsfactor gebruikt, kan het startpunt
+# lange tijd dicht bij het doel blijven 'schommelen' zonder dat het exact het doel bereikt.
+# Dit kan een langere uitvoeringstijd betekenen.
+# Nauwkeurigheid: Als de stapgroottevermindering te groot is, kan het startpunt snel in de buurt van het doel komen,
+# maar mogelijk niet exact het doel bereiken. Een te grote verkleiningsfactor kan ertoe leiden dat het startpunt te
+# vroeg stopt met bewegen en niet genoeg iteraties uitvoert om het doel te bereiken.
+# Het vinden van de optimale verkleiningsfactor vereist meestal wat experimentatie.
+# Hier zijn enkele stappen die je kunt volgen:
+# Probeer verschillende waarden voor de verkleiningsfactor: Begin met een redelijke waarde, bijvoorbeeld 0.95 of 0.99
+# en voer de code uit om te zien hoe het startpunt zich gedraagt. Pas de waarde aan en voer het opnieuw uit om het
+# effect te observeren.
+# Beoordeel de nauwkeurigheid: Controleer of het startpunt het doelpunt nauwkeurig bereikt met de gekozen
+# verkleiningsfactor.
+# Als het startpunt het doel nog steeds niet nauwkeurig bereikt, probeer dan een kleinere verkleiningsfactor.
+# Controleer het aantal iteraties: Kijk hoeveel iteraties er nodig zijn om het doel te bereiken met verschillende
+# verkleiningsfactoren. Als je een kleinere verkleiningsfactor gebruikt, is het mogelijk dat er minder iteraties nodig
+# zijn om het doel te bereiken, maar de totale uitvoeringstijd kan toenemen.
+# Wees geduldig: Optimalisatie kan trial-and-error vereisen. Neem de tijd om verschillende verkleiningsfactoren te
+# proberen en de resultaten te observeren.
+# Het uiteindelijke doel is om een balans te vinden tussen nauwkeurigheid en het aantal benodigde iteraties.
+# Het is mogelijk dat je een compromis moet sluiten, afhankelijk van de complexiteit van het probleem en de gewenste
+# uitvoeringstijd.
+# Experimenteer met verschillende waarden voor de verkleiningsfactor en let op het gedrag van het startpunt.
+# Kijk of je een punt kunt vinden waarbij het startpunt snel genoeg naar het doel beweegt en toch nauwkeurig
+# convergeert.
+
+# Pas de code zo aan dat het volgende random punt nooit buiten de grid gekozen wordt.
+# We moeten ervoor zorgen dat de x- en y-coördinaten van het willekeurige punt binnen de grenzen van het grid blijven
+# (0 tot GRID_SIZE). Als een willekeurig punt buiten het grid valt, moeten we het punt opnieuw kiezen totdat we een
+# geldig punt binnen het grid krijgen.
+# Met deze aanpassing zal het volgende willekeurige punt altijd binnen het grid worden gekozen.
+# Dit zorgt ervoor dat het programma niet vastloopt of een ongeldig punt genereert dat buiten het grid ligt.
+# Het algoritme zal het startpunt geleidelijk naar het doel verplaatsen en tegelijkertijd ervoor zorgen dat het
+# volgende punt altijd geldig is binnen het grid.
